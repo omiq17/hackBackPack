@@ -1,0 +1,110 @@
+body {
+  font-family: 'Fredoka One', cursive;
+}
+/*
+header
+*/
+#header h1 {
+    text-align: center;
+    color: chocolate;
+    margin: 30px;
+    font-size: 55px;
+}
+#header .navbar {
+    background-color: whitesmoke;
+    margin: 0px;
+}
+#header a:hover, #about a:hover {
+    text-decoration: none;
+}
+#header p{
+  text-align: center;
+  font-size: 25px;
+  color: chocolate;
+}
+
+/*************
+ about
+*************/
+#about {
+  /*background: chocolate;*/
+  text-align: center;
+}
+#about h1 {
+  font-size: 45px;
+}
+#about #main.container {
+  width: 100%;
+  padding: 0px;
+}
+#about .left {
+  padding: 5vh 0vh;
+  color: whitesmoke;
+  /*margin: auto;*/
+  height: 100%;
+  background: chocolate;
+    border-style: solid;
+    /*border-width: 5px 0px 5px 5px;*/
+}
+#about .right p {
+  line-height: 1.9;
+  text-align: justify;
+  text-justify: inter-word;
+  font-size: 17px;
+}
+#about .right a:hover {
+    background-color: white !Important;
+}
+#about .up, #about .down, #about .left {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+#about .up, #about .down {
+    border-style: solid;
+    border-width: 5px;
+}
+#about .up{
+    height: 50%;
+    background: darkslategray; 
+    color: white;
+}
+#about .down{ 
+    height: 50%;
+    background: yellowgreen;  
+    color: white;         
+}
+#about .up:hover{
+    color: darkslategray; 
+    background: white;   
+    transition: all 0.5s ease-out;
+}
+#about .down:hover{ 
+    color: yellowgreen;  
+    background: white;
+    transition: all 0.5s ease-out;
+}
+@media only screen and (min-width : 768px) {
+  #service .box p{
+      height: 110px;
+  }
+  #about .left {
+    padding: 0vh;
+  }
+  #about .right {
+    /*padding: 11vh;*/
+  }
+  #about #main.container {
+    display: flex;
+  }
+  #about #main.container {
+    width: 100%;
+    padding: 0px;
+    height: 79vh;
+  }
+}
+
+
+/*******************************************
+
+*********************************************/

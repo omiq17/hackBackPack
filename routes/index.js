@@ -5,7 +5,6 @@ var assert = require('assert');
 // var MongoClient = require('mongodb').MongoClient
 //   , assert = require('assert');
 var ObjectId = require('mongodb').ObjectID;
-
 var url = 'mongodb://localhost:27017/jdf';
 
 /* GET home page. */

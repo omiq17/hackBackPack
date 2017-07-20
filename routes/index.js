@@ -167,7 +167,10 @@ router.post('/insertStudent', function(req, res, next){
     db.collection('student').insertOne(item, function(err, result){
     assert.equal(err, null);
     console.log("Item Successfully Inserted.");
-  
+    db.close();
+    
+    });
+  });
   res.redirect('/admin' );
 });
 

@@ -20,20 +20,6 @@ router.get('/error', function(req, res, next) {
   res.render('error');  
 });
 
-router.get('/archive', function(req, res, next) {
-  var result = [];
-  mongo.connect(url, function(err, db) {
-    assert.equal(null, err);
-    var cursor = db.collection('archives').find();
-    cursor.forEach(function(doc, err) {
-      assert.equal(null, err);
-      result.push(doc);
-    }, function() {
-      db.close();
-      res.render('archive', {page: '/archive', items: result });
-    });
-  });
-});
 
 router.get('/archive/:id', function(req, res, next) {
   var result = [];
@@ -64,65 +50,18 @@ router.get('/archive/:id', function(req, res, next) {
   });
 });
 
-router.get('/showArc/:id', function(req, res, next) {
-  var result = [];
-  var id = req.params.id;
-  var o_id = new ObjectId(id);
-  mongo.connect(url, function(err, db) {
-    assert.equal(null, err);
-    var cursor = db.collection('archives').aggregate([
-        {
-          $lookup:
-            {
-              from: "programs",
-              localField: "prog_id",
-              foreignField: "_id",
-              as: "programs"
-            }
-      },
-      {
-          $match: { "_id": o_id }
-      }
-    ]);
-    cursor.forEach(function(doc, err) {
-      assert.equal(null, err);
-      result.push(doc);
-    }, function() {
-      // console.log(result[0].archives);
-      db.close();
-      res.render('viewArc', {page: '/archive', items: result });
-    });
-  });
-});
 
-router.get('/members', function(req, res, next) {
-  var result = [];
-  mongo.connect(url, function(err, db) {
-    assert.equal(null, err);
-    var cursor = db.collection('members').find();
-    cursor.forEach(function(doc, err) {
-      assert.equal(null, err);
-      result.push(doc);
-    }, function() {
-      db.close();
-      res.render('members', {page: '/members', items: result });
-    });
-  });
-});
 
-router.get('/about', function(req, res, next) {
-  res.render('about', {page: '/about' });
-});
 
 
 /* Student Section */
-router.get('/admin', function(req, res, next) {
-  res.render('admin', {page: '/admin' });
+router.get('/registerStudent', function(req, res, next) {
+  res.render('admin');
 });
 
 /* Teacher Section */
-router.get('/teacherForm', function(req, res, next) {
-  res.render('teacherForm', {page: '/teacherForm' });
+router.get('/registerTeacher', function(req, res, next) {
+  res.render('teacherForm');
 });
 /////////////////////////////////////////////////////////////////////////////////////////
 // REST API Post works
@@ -140,7 +79,7 @@ router.post('/insertTeacher', function(req, res, next){
     bio : req.body.tBio,
     contact : req.body.tContact,
     pic: req.body.tPic,
-    username : req.body.tUsername,
+    username : req.body.tUser,
     password : req.body.tPassword
   }; 
   mongo.connect(url, function(err, db){
@@ -152,7 +91,7 @@ router.post('/insertTeacher', function(req, res, next){
     });
   });
   
-  res.redirect('/teacherForm' );
+  res.redirect('/' );
 });
 
 router.post('/insertStudent', function(req, res, next){
@@ -177,7 +116,7 @@ router.post('/insertStudent', function(req, res, next){
     });
   });
   
-  res.redirect('/admin' );
+  res.redirect('/' );
 });
 
 module.exports = router;

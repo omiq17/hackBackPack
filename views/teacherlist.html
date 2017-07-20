@@ -1,0 +1,40 @@
+<%- include header.html -%>
+
+<style>
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(even) {
+    background-color: #dddddd;
+}
+</style>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Bio</th>
+    <th>Location</th>
+    <th>Subject</th>
+    <th>Contact</th>
+  </tr>
+<% items.forEach(function(teacher) { %>
+  <tr>
+    <td> <%- teacher.name %> </td>
+    <td> <%- teacher.bio %> </td>
+    <td> <%- teacher.location %> </td>
+    <td> <%- teacher.major %> </td>
+    <td> <%- teacher.contact %> </td>
+  </tr>
+<% }); %> 
+
+</table>
+<%- include footer.html -%>

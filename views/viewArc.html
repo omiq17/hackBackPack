@@ -1,0 +1,26 @@
+    <%- include header.html -%>
+
+    <section id="portfolio" class="light-bg">
+      <div class="container">
+        <div class="row">
+            <div class="col-lg-12 text-center">
+            <div class="section-title">
+                <h2>Joyoddhoney Archive</h2>
+                <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.</p>
+            </div>
+            </div>
+        </div>
+        <% if(items[0].type == "Image") { %>
+        <div class="row">
+            <img id="myImg" src="<%= items[0].link %>" class="img-thumbnail" alt="Image">
+            <div id="myModal" class="modal">
+            <span class="close">&times;</span>
+            <img class="modal-content" id="img01">
+            <div id="caption"></div>
+            </div>
+        </div>
+        <% } %>
+      </div>
+    </section>
+
+    <%- include footer.html -%>

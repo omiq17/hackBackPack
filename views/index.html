@@ -1,0 +1,208 @@
+  <%- include header.html -%>
+
+    <div id="slider">
+  		<img src="img/jd2.jpg" data-src-2x="img/jd2.jpg" alt="Slide 1" />
+  		<img data-src="img/jd1.jpg" data-src-2x="img/jd1.jpg" src="" alt="Slide 2" />
+  		<img data-src="img/jd4.jpg" data-src-2x="img/jd4.jpg" src="" alt="Slide 3" />
+  	</div>
+
+    <div id="about">
+      <div class="container" id="main">
+        <div class="left col-sm-6 col-xs-12">
+          <h1>Little About Joyoddhoney</h1>
+        </div>
+        <div class="right col-sm-6 col-xs-12">
+          <p>
+            JOYODDHONEY is a non-political Cultural organization of Chittagong University of Engineering & Technology (CUET). It was Established on February 16, 2000 by some creative and innovative students of that time. With the goal of creating a free cultural environment inside CUET and exposing patriotism by different cultural activities, Joyoddhoney has been organizing and performing so many cultural programs for last fifteen years both inside and outside CUET.
+            It is a official facebook group for Joyoddhoney members and well wishers.
+            <br>Joyoddhoney has been organizing and performing so many cultural programs for last fourteenth years both inside and outside CUET. It is organized a annual program named "JOLRONG" in CUET. It is also organized a three day long national program named "Inter University Cultural Festival(IUCF)".
+          </p>
+
+        </div>
+      </div>
+      <section class="section-divider textdivider divider4">
+      			<div class="container">
+      				<h1>We are a Cultural Family</h1>
+      				<hr>
+      				<p>Joyoddhoney is the only none political cultural organization of Chittagong University of Engineering & technology .</p>
+      			</div><!-- container -->
+      </section>
+    </div>
+
+    <div id="service">
+      <h1 class="head">Our Activities</h1>
+      <h3 class="shortDes">We have huge resources with creative and experienced
+        desginers and engineers.</h3>
+      <div class="container">
+        <div class="row">
+          <div class="col-xs-12 col-md-4">
+            <div class="box">
+              <div class="icon colored-1">
+                <span><i class="fa fa-picture-o"></i></span>
+              </div>
+              <h3>Dance</h3>
+              <p>Dance is a performing art form consisting of purposefully selected sequences of human movement. This movement has aesthetic and symbolic value, and is acknowledged as dance by performers and observers within a particular culture.</p>
+            </div>
+          </div>
+          <div class="col-xs-12 col-md-4">
+            <div class="box">
+              <div class="icon colored-2">
+                <span><i class="fa fa-cogs"></i></i></span>
+              </div>
+              <h3>Film</h3>
+              <p>A film is any motion picture not long enough to be considered a feature film.
+              </p>
+            </div>
+          </div>
+          <div class="col-xs-12 col-md-4">
+            <div class="box">
+              <div class="icon colored-3">
+                <span><i class="fa fa-code"></i></span>
+              </div>
+              <h3>Drama</h3>
+              <p>
+                Drama is the specific mode of fiction represented in performance.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-xs-12 col-md-4">
+            <div class="box">
+              <div class="icon colored-1">
+                <span><i class="fa fa-picture-o"></i></span>
+              </div>
+              <h3>Short Film</h3>
+              <p>A short film is any motion picture not long enough to be considered a feature film.
+              </p>
+            </div>
+          </div>
+          <div class="col-xs-12 col-md-4">
+            <div class="box">
+              <div class="icon colored-2">
+                <span><i class="fa fa-music" aria-hidden="true"></i></span>
+              </div>
+              <h3>Song</h3>
+              <p>A song is a single work of music that is typically intended to be sung by the human voice with distinct and fixed pitches and patterns using sound and silence and a variety of forms that often include the repetition of sections.
+              </p>
+            </div>
+          </div>
+          <div class="col-xs-12 col-md-4">
+            <div class="box">
+              <div class="icon colored-3">
+                <span><i class="fa fa-code-fork" aria-hidden="true"></i></span>
+              </div>
+              <h3>Mime</h3>
+              <p>Mime is a person who uses mime as a theatrical medium or as a performance art, involving miming, or the acting out a story through body motions, without use of speech.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- <aside class="callout">
+          <div class="text-vertical-center">
+              <h1>So,You need us?<br>We are willing to help you.</h1>
+          </div>
+      </aside>
+    </div> -->
+
+    <div id="afterPortfolio">
+      <aside class="call-to-action bg-primary">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2>Impressed with our works?</h2>
+                    <h2>Feel free to join with us</h2>
+                </div>
+            </div>
+        </div>
+    </aside>
+    </div>
+
+    <%- include footer.html -%>
+
+    <script src="js/ideal-image-slider.js"></script>
+    <script src="js/iis-bullet-nav.js"></script>
+    <script>
+    $(document).ready(function(){
+      ///////////////
+      // slider setup
+      ///////////////
+      var slider = new IdealImageSlider.Slider({
+        selector: "#slider",
+        effect: 'fade',
+        interval: 3001,
+        transitionDuration: 551
+      });
+    	slider.addBulletNav();
+    	slider.start();
+      ///////////////
+      // navbar click to go setup
+      ///////////////
+      var height = $("#header").height();
+      // console.log(height);
+      // $('#header #myNavbar a.hvr-underline-reveal').bind('click', function(event) {
+      //     event.preventDefault();
+      //     $('#header #myNavbar a.active').removeClass("active");
+      //     $(this).addClass("active");
+      //     var $anchor = $(this);
+      //     if( $("#header").hasClass("navbar-fixed-top")){
+      //       $('html, body').stop().animate({
+      //           scrollTop: ($($anchor.attr('href')).offset().top) - height
+      //       }, 1000);
+      //     } else {
+      //       $('html, body').stop().animate({
+      //           scrollTop: ($($anchor.attr('href')).offset().top) - (height*2)
+      //       }, 1000);
+      //     }
+      // });
+      // $('#header a.navbar-brand').bind('click', function(event) {
+      //     event.preventDefault();
+      //     $('#header #myNavbar a.active').removeClass("active");
+      //       $('html, body').stop().animate({
+      //           scrollTop: 0
+      //       }, 1000);
+      // });
+      ///////////////
+      // navbar animation setup
+      ///////////////
+      var header = $("header");
+      var menu = $("#header .navbar-default .navbar-nav>li>a");
+      var brand = $("#header .navbar-brand");
+      var lastScrollTop = 0;
+      $(document).on('scroll',function() {
+        if($(window).width()>=968){
+          if($(this).scrollTop()+(2.5*height)>=$('#about').position().top) {
+            header.css("background", "ghostwhite");
+            menu.css("color", "#286090");
+            brand.css("color", "#286090");
+            header.addClass("navbar-fixed-top animateSlideInDown");
+          } else if ($(this).scrollTop()+(2.5*height)<=$('#about').position().top) {
+            header.css("background", "#286090");
+            menu.css("color", "ghostwhite");
+            brand.css("color", "ghostwhite");
+            header.removeClass("navbar-fixed-top animateSlideInDown");
+          }
+        } else {
+          console.log($(this).scrollTop());
+          var st = $(this).scrollTop();
+             if (st < lastScrollTop && st>150){
+               header.css("background", "ghostwhite");
+               menu.css("color", "#286090");
+               brand.css("color", "#286090");
+               header.addClass("navbar-fixed-top animateSlideInDown");
+             } else {
+               header.css("background", "#286090");
+               menu.css("color", "ghostwhite");
+               brand.css("color", "ghostwhite");
+               header.removeClass("navbar-fixed-top animateSlideInDown");
+             }
+             lastScrollTop = st;
+        }
+
+      });
+    });
+  	</script>
+  </body>
+</html>

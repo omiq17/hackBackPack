@@ -1,0 +1,28 @@
+  <%- include header.html -%>
+
+    <div id="team">
+      <div class="container">
+        <br>
+
+        <div class="row white">
+          <h1>Meet With Our Team</h1>
+          <hr>
+          <br>
+          <br>
+          
+          <% items.forEach(function(member) { %>
+          <div class="col-md-3 col-xs-12">
+            <img class="img img-circle" src="<%- member.pic %>" height="120px" width="120px" alt="">
+            <br>
+            <h3><b><%- member.name %></b></h3>
+            <h4><%- member.rank %></h4>
+            <h4><%- member.skills %></h4>
+          </div><!-- col-lg-3 -->
+          <% }); %>
+          
+        </div>
+        <!--<%= items[0]._id %>-->
+      </div>
+    </div>
+
+    <%- include footer.html -%>

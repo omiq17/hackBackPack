@@ -1,0 +1,24 @@
+<%- include header.html -%>
+
+  <div id="team1">
+    <div class="container">
+      <br>
+
+      <% items.forEach(function(program) { %>
+      <img src="<%- program.pic %>" alt="..." class="img-thumbnail img-responsive">
+      <h1><%- program.title %></h1>
+      <span><b>Date:</b> <%- program.date %></span><br>
+      <span><b>Program Type:</b> <%- program.type %></span>      
+      <br><br>
+      <p>
+        <%- program.desc %>        
+      </p>
+     <a href="archive/<%- program._id %>">
+      <button   class="btn btn-primary">Go to program archive</button>
+    </a>
+      <% }); %>
+
+    </div>
+  </div>
+
+  <%- include footer.html -%>

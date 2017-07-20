@@ -1,0 +1,37 @@
+<script>
+  $(document).ready(function(){
+    // Get the modal
+    var modal = document.getElementById('myModal');
+
+    // Get the image and insert it inside the modal - use its "alt" text as a caption
+    var captionText = document.getElementById("caption");
+    $( "figure a" ).click(function(e){
+          e.preventDefault();
+          $(".view").css("pointer-events", "none");
+          modal.style.display = "block";          
+          var data = JSON.parse(this.innerHTML);
+          console.log(data);
+          if(data.type == "Image"){
+            $("#myModal img").remove();        
+            $("#myModal iframe").remove();
+            var $e = '<img class="modal-content" id="img01" src="'+data.link+'">';
+            $("#myModal span").after($e);
+        } else {
+            $("#myModal iframe").remove();        
+            $("#myModal img").remove();        
+            var $e = '<iframe width="800" height="400" src="'+data.video+'" style = "display:block; margin:auto;" frameborder="0" allowfullscreen></iframe>';  
+            $("#myModal span").after($e);
+          }
+          captionText.innerHTML = data.name;          
+      });
+
+    // Get the <span> element that closes the modal
+    var span = document.getElementsByClassName("close")[0];
+
+    // When the user clicks on <span> (x), close the modal
+    span.onclick = function() { 
+        modal.style.display = "none";
+          $(".view").css("pointer-events", "auto");        
+    }
+  });
+</script>

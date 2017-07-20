@@ -1,0 +1,77 @@
+  <%- include header.html -%>
+
+    <div id="about">
+      <div class="container" id="main">
+        <div class="left col-sm-6 col-xs-12">
+          <h1>I am a...</h1>
+        </div>
+        <div class="right col-sm-6 col-xs-12">
+            <a class="teacher" href="#myModal1" data-toggle="modal" >
+                <div class="row up">
+                        <h1>Teacher</h1>                
+                </div>
+            </a>
+            <a class="student" href="#myModal2" data-toggle="modal">            
+                <div class="row down">
+                        <h1>Student</h1>  
+                </div>
+            </a>
+        </div>
+      </div>
+    </div>
+
+        <!-- Modal -->
+    <div id="myModal1" class="modal fade" role="dialog">
+      <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h4 class="modal-title">I want to...</h4>
+          </div>
+          <div class="modal-body">
+              <div>
+                <input type="text" placeholder="Email">
+                <input type="password" placeholder="Password">
+                <a href="loginTeacher" class="btn-my btn"  role="button">Login</a>                
+              </div>
+              <p>
+                Haven't registered yet? <a href="registerTeacher" >Register Now!</a> 
+              </p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn-my btn" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+
+        <!-- Modal -->
+    <div id="myModal2" class="modal fade" role="dialog">
+      <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h4 class="modal-title">I want to...</h4>
+          </div>
+          <div class="modal-body">
+              <div>
+                <input type="text" placeholder="Email">
+                <input type="password" placeholder="Password">
+                <a href="loginStudent" class="btn-my btn"  role="button">Login</a>                
+              </div>
+              <p>
+                Haven't registered yet? <a href="registerStudent" >Register Now!</a> 
+              </p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn-my btn"  data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  <%- include footer.html -%>

@@ -14,7 +14,7 @@ header
     background-color: whitesmoke;
     margin: 0px;
 }
-#header a:hover, #about a:hover {
+#header a:hover, #about a:hover, #myModal1 a:hover, #myModal1 a:hover {
     text-decoration: none;
 }
 #header p{
@@ -22,7 +22,6 @@ header
   font-size: 25px;
   color: chocolate;
 }
-
 /*************
  about
 *************/
@@ -84,6 +83,7 @@ header
     background: white;
     transition: all 0.5s ease-out;
 }
+
 @media only screen and (min-width : 768px) {
   #service .box p{
       height: 110px;
@@ -102,6 +102,42 @@ header
     padding: 0px;
     height: 79vh;
   }
+}
+
+.btn-my {
+    color: #fff !important;
+    background-color: chocolate !important;
+    border-color: chocolate !important;
+}
+.btn-my:hover {
+    background-color: #fff !important; 
+    color: chocolate !important;
+    border-color: chocolate !important;
+}
+
+/*
+------------------Modal
+*/
+#myModal1 a, #myModal2 a {
+  color: chocolate;
+}
+.modal {
+  text-align: center;
+  padding: 0!important;
+}
+
+.modal:before {
+  content: '';
+  display: inline-block;
+  height: 100%;
+  vertical-align: middle;
+  margin-right: -4px;
+}
+
+.modal-dialog {
+  display: inline-block;
+  text-align: left;
+  vertical-align: middle;
 }
 
 

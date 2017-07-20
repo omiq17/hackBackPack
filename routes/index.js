@@ -6,7 +6,7 @@ var assert = require('assert');
 //   , assert = require('assert');
 var ObjectId = require('mongodb').ObjectID;
 
-var url = 'mongodb://localhost:27017/jdf';
+var url = 'mongodb://localhost:27017/tuition';
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -115,11 +115,15 @@ router.get('/about', function(req, res, next) {
 });
 
 
-/* Admin Section */
+/* Student Section */
 router.get('/admin', function(req, res, next) {
   res.render('admin', {page: '/admin' });
 });
 
+/* Teacher Section */
+router.get('/teacherForm', function(req, res, next) {
+  res.render('teacherForm', {page: '/teacherForm' });
+});
 /////////////////////////////////////////////////////////////////////////////////////////
 // REST API Post works
 ////////////////////////////////////////////////////////////////////////////////////////
@@ -148,7 +152,7 @@ router.post('/insertTeacher', function(req, res, next){
     });
   });
   
-  res.redirect('/admin' );
+  res.redirect('/teacherForm' );
 });
 
 router.post('/insertStudent', function(req, res, next){
@@ -156,6 +160,7 @@ router.post('/insertStudent', function(req, res, next){
     name : req.body.sName,
     institution : req.body.sInstitution,
     class : req.body.sClass,
+    gender : req.body.sGender,
     location : req.body.sLocation,
     pic: req.body.sPic,
     username : req.body.sUsername,
@@ -168,9 +173,10 @@ router.post('/insertStudent', function(req, res, next){
     assert.equal(err, null);
     console.log("Item Successfully Inserted.");
     db.close();
-    
+
     });
   });
+  
   res.redirect('/admin' );
 });
 

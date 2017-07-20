@@ -5,7 +5,8 @@ var assert = require('assert');
 // var MongoClient = require('mongodb').MongoClient
 //   , assert = require('assert');
 var ObjectId = require('mongodb').ObjectID;
-var url = 'mongodb://localhost:27017/jdf';
+
+var url = 'mongodb://localhost:27017/tuition';
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -114,53 +115,65 @@ router.get('/about', function(req, res, next) {
 });
 
 
-/* Admin Section */
+/* Student Section */
 router.get('/admin', function(req, res, next) {
   res.render('admin', {page: '/admin' });
 });
 
+/* Teacher Section */
+router.get('/teacherForm', function(req, res, next) {
+  res.render('teacherForm', {page: '/teacherForm' });
+});
 /////////////////////////////////////////////////////////////////////////////////////////
 // REST API Post works
 ////////////////////////////////////////////////////////////////////////////////////////
 
-// for Members
-router.post('/insertMember', function(req, res, next){
+// for Teachers
+router.post('/insertTeacher', function(req, res, next){
   var item = {
-    name : req.body.memName,
-    versity_id : parseInt(req.body.memId),
-    rank : req.body.memRank,
-    skills: req.body.memSkills.split(","),
-    pic: req.body.memPic
+    name : req.body.tName,
+    university : req.body.tUniv,
+    gender : req.body.tGender,
+    major : req.body.tMajor,
+    location : req.body.tLocation,
+    subjects : req.body.tSubjects,
+    bio : req.body.tBio,
+    contact : req.body.tContact,
+    pic: req.body.tPic,
+    username : req.body.tUsername,
+    password : req.body.tPassword
   }; 
-
   mongo.connect(url, function(err, db){
     assert.equal(null, err);
-    db.collection('members').insertOne(item, function(err, result){
+    db.collection('teacher').insertOne(item, function(err, result){
     assert.equal(err, null);
     console.log("Item Successfully Inserted.");
     db.close();
     });
   });
   
-  res.redirect('/admin' );
+  res.redirect('/teacherForm' );
 });
 
-// for Program
-router.post('/insertProgram', function(req, res, next){
+router.post('/insertStudent', function(req, res, next){
   var item = {
-    _id: req.body.progId,
-    title : req.body.progTitle,
-    type : req.body.progType,
-    desc: req.body.progDes,
-    date: req.body.progDate,
-    pic: req.body.progPic
+    name : req.body.sName,
+    institution : req.body.sInstitution,
+    class : req.body.sClass,
+    gender : req.body.sGender,
+    location : req.body.sLocation,
+    pic: req.body.sPic,
+    username : req.body.sUsername,
+    password : req.body.sPassword,
+    contact : req.body.sContact
   }; 
-
   mongo.connect(url, function(err, db){
     assert.equal(null, err);
-    db.collection('programs').insertOne(item, function(err, result){
+    db.collection('student').insertOne(item, function(err, result){
     assert.equal(err, null);
+    console.log("Item Successfully Inserted.");
     db.close();
+
     });
   });
   

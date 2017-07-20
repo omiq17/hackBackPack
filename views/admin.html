@@ -1,0 +1,35 @@
+<%- include header.html -%>
+
+<div id="admin" class="container">
+
+    <form id="insertStudent" action="/insertStudent" method="post"> 
+        <h2><b>Student Registration</b></h2>
+        <div class="form-group">
+            <label>Name</label>
+            <input class="form-control" name="sName" required>
+        </div>
+        <div class="form-group">
+            <label>Institution</label>
+            <input class="form-control" name="sInstitution" required>
+        </div>
+        <div class="form-group">
+            <label>Class (1-12)</label>
+            <input class="form-control" name="sClass" required>
+        </div>
+        <div class="form-group">
+            <label>Gender</label>
+            <input class="form-control" name="sGender" required>
+        </div>
+        <div class="form-group">
+            <label>Location</label>
+            <input class="form-control" name="sLocation" required>
+        </div>
+        <div class="form-group">
+            <label>Contact</label>
+            <input class="form-control" name="sContact" required>
+        </div>
+        <button type="submit" class="btn btn-default">Submit</button>
+    </form>
+</div>
+
+<%- include footer.html -%>

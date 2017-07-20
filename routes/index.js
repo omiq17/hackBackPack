@@ -124,6 +124,7 @@ router.get('/admin', function(req, res, next) {
 // REST API Post works
 ////////////////////////////////////////////////////////////////////////////////////////
 
+<<<<<<< HEAD
 // for Teachers
 router.post('/insertTeacher', function(req, res, next){
   var item = {
@@ -142,6 +143,21 @@ router.post('/insertTeacher', function(req, res, next){
   mongo.connect(url, function(err, db){
     assert.equal(null, err);
     db.collection('teacher').insertOne(item, function(err, result){
+=======
+// for Members
+router.post('/insertMember', function(req, res, next){
+  var item = {
+    name : req.body.memName,
+    versity_id : parseInt(req.body.memId),
+    rank : req.body.memRank,
+    skills: req.body.memSkills.split(","),
+    pic: req.body.memPic
+  }; 
+
+  mongo.connect(url, function(err, db){
+    assert.equal(null, err);
+    db.collection('members').insertOne(item, function(err, result){
+>>>>>>> 9524ff41ae8066109e38857ccfc05a5a95096181
     assert.equal(err, null);
     console.log("Item Successfully Inserted.");
     db.close();
@@ -151,6 +167,7 @@ router.post('/insertTeacher', function(req, res, next){
   res.redirect('/admin' );
 });
 
+<<<<<<< HEAD
 //for Students
 router.post('/insertStudent', function(req, res, next){
   var item = {
@@ -168,6 +185,23 @@ router.post('/insertStudent', function(req, res, next){
     db.collection('student').insertOne(item, function(err, result){
     assert.equal(err, null);
     console.log("Item Successfully Inserted.");
+=======
+// for Program
+router.post('/insertProgram', function(req, res, next){
+  var item = {
+    _id: req.body.progId,
+    title : req.body.progTitle,
+    type : req.body.progType,
+    desc: req.body.progDes,
+    date: req.body.progDate,
+    pic: req.body.progPic
+  }; 
+
+  mongo.connect(url, function(err, db){
+    assert.equal(null, err);
+    db.collection('programs').insertOne(item, function(err, result){
+    assert.equal(err, null);
+>>>>>>> 9524ff41ae8066109e38857ccfc05a5a95096181
     db.close();
     });
   });
@@ -175,4 +209,8 @@ router.post('/insertStudent', function(req, res, next){
   res.redirect('/admin' );
 });
 
+<<<<<<< HEAD
 module.exports = router;
+=======
+module.exports = router;
+>>>>>>> 9524ff41ae8066109e38857ccfc05a5a95096181

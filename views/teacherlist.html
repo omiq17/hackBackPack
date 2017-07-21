@@ -1,10 +1,22 @@
 <%- include header.html -%>
 
 <style>
+  #table{
+    margin: 35px;
+  }
+  h1{
+    text-align: center;
+  }
 table {
-    font-family: arial, sans-serif;
+    font-family: 'Dosis', sans-serif;
     border-collapse: collapse;
     width: 100%;
+}
+table th{
+  font-size: 21px;
+}
+table td{
+  font-size: 17px;
 }
 
 td, th {
@@ -18,23 +30,36 @@ tr:nth-child(even) {
 }
 </style>
 
-<table>
-  <tr>
-    <th>Name</th>
-    <th>Bio</th>
-    <th>Location</th>
-    <th>Subject</th>
-    <th>Contact</th>
-  </tr>
-<% items.forEach(function(teacher) { %>
-  <tr>
-    <td> <%- teacher.name %> </td>
-    <td> <%- teacher.bio %> </td>
-    <td> <%- teacher.location %> </td>
-    <td> <%- teacher.major %> </td>
-    <td> <%- teacher.contact %> </td>
-  </tr>
-<% }); %> 
+<div id="table">
+  <h1>Tutor Finder</h1>
+    <table id="example" class="display table-stripped" cellspacing="0" width="100%">
+            <thead>
+                <tr>
+              <th>Name</th>
+              <th>University</th>
+              <th>Location</th>
+              <th>Subject Expertise</th>        
+              <th>Contact</th>
+              <th>Bio</th>
+              <th>Link</th>
+            </tr>
+            </thead>
+            <tbody>
+                <% items.forEach(function(teacher) { %>
+                  <!--<a href="<%- teacher.username %>">-->
+                  <tr>
+                    <td> <%- teacher.name %> </td>
+                    <td> <%- teacher.major %>, <%- teacher.university %> </td>
+                    <td> <%- teacher.location %> </td>
+                    <td> <%- teacher.subjects %> </td>
+                    <td> <%- teacher.contact %> </td>
+                    <td> <%- teacher.bio %> </td>
+                    <td> <a href="/teacher/<%- teacher.username %>" class="btn btn-my">Visit Tutor</a> </td>
+                  </tr>
+                  </a>
+                <% }); %>
+            </tbody>
+    </table>
+  </div>
 
-</table>
 <%- include footer.html -%>

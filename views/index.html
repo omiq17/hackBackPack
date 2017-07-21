@@ -3,17 +3,17 @@
     <div id="about">
       <div class="container" id="main">
         <div class="left col-sm-6 col-xs-12">
-          <h1>I am a...</h1>
+          <h1>I AM A...</h1>
         </div>
         <div class="right col-sm-6 col-xs-12">
             <a class="teacher" href="#myModal1" data-toggle="modal">
                 <div class="row up">
-                        <h1>Teacher</h1>                
+                        <h1>TEACHER</h1>                
                 </div>
             </a>
             <a class="student" href="#myModal2" data-toggle="modal">            
                 <div class="row down">
-                        <h1>Student</h1>
+                        <h1>STUDENT</h1>
                 </div>
             </a>
         </div>
@@ -32,10 +32,11 @@
           </div>
           <div class="modal-body">
               <div>
-                <input type="text" placeholder="Email">
-                <input type="password" placeholder="Password">
-                <a href="teacherForm" class="btn-my btn"  role="button">Login</a>                
-              </div>
+                <form action="teacher" method="post">
+                  <input type="text" placeholder="Email" name="email">
+                  <input type="password" placeholder="Password" name="password">
+                  <button type="submit" class="btn btn-my">Login</button>
+                </form>
               <p>
                 Haven't registered yet? <a href="registerTeacher" >Register Now!</a> 
               </p>
@@ -46,6 +47,7 @@
         </div>
       </div>
     </div>
+  </div>
     
 
         <!-- Modal -->
@@ -60,9 +62,11 @@
           </div>
           <div class="modal-body">
               <div>
-                <input type="text" placeholder="Email">
-                <input type="password" placeholder="Password">
-                <a href="loginStudent" class="btn-my btn"  role="button">Login</a>                
+                <form action="/student" method="post">
+                  <input type="text" placeholder="Email" name="email">
+                  <input type="password" placeholder="Password" name="password">
+                  <button type="submit" class="btn btn-my">Login</button>
+                </form>
               </div>
               <p>
                 Haven't registered yet? <a href="registerStudent" >Register Now!</a> 

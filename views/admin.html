@@ -3,7 +3,7 @@
 <div id="admin" class="container">
 
     <form id="insertStudent" action="/insertStudent" method="post"> 
-        <h2><b>Student Registration</b></h2>
+        <h1><b>Student Registration</b></h1>
         <div class="form-group">
             <label>Name</label>
             <input class="form-control" name="sName" required>
@@ -27,6 +27,14 @@
         <div class="form-group">
             <label>Contact No.</label>
             <input class="form-control" name="sContact" required>
+        </div>
+         <div class="form-group">
+            <label>Email</label>
+            <input type="email" class="form-control" name="sUser" required>
+        </div>
+        <div class="form-group">
+            <label>Password</label>
+            <input type="password" class="form-control" name="sPassword" required>
         </div>
         <button type="submit" class="btn btn-default">Submit</button>
     </form>

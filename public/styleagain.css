@@ -1,0 +1,25 @@
+/*******************************************
+    teacher, student
+*********************************************/
+#teacher, #student, #admin {
+        font-family: 'Dosis', sans-serif;
+}
+#admin label{
+        font-size: 19px;
+}
+#teacher>.row, #student>.row {
+        width : 275px;
+        margin: 0 auto;
+
+}
+#teacher, #student {
+        text-align: center;
+        padding: 9px;
+}
+#teacher h4, #student h4{
+        font-size: 19px;
+}
+
+/*******************************************
+
+*********************************************/

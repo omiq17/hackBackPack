@@ -2,8 +2,6 @@ var express = require('express');
 var router = express.Router();
 var mongo = require('mongodb').MongoClient;
 var assert = require('assert');
-// var MongoClient = require('mongodb').MongoClient
-//   , assert = require('assert');
 var ObjectId = require('mongodb').ObjectID;
 
 var url = 'mongodb://localhost:27017/tuition';
@@ -12,6 +10,7 @@ var url = 'mongodb://localhost:27017/tuition';
 router.get('/', function(req, res, next) {
   res.render('index', {page: '/' });
 });
+
 
 // router.get('/user', function(req, res, next) {
 //   res.send("user");
@@ -33,41 +32,7 @@ router.get('/teacherlist', function(req, res, next) {
       res.render('teacherlist', {items: result });
     });
   });
-});
-
-router.get('/archive/:id', function(req, res, next) {
-  var result = [];
-  var id = req.params.id;
-  mongo.connect(url, function(err, db) {
-    assert.equal(null, err);
-    var cursor = db.collection('programs').aggregate([
-        {
-          $lookup:
-            {
-              from: "archives",
-              localField: "_id",
-              foreignField: "prog_id",
-              as: "archives"
-            }
-      },
-      {
-          $match: { "_id": id }
-      }
-    ]);
-    cursor.forEach(function(doc, err) {
-      assert.equal(null, err);
-      result.push(doc);
-    }, function() {
-      db.close();
-      res.render('viewProgArc', {page: '/archive', items: result });
-    });
-  });
-});
-
-
-
-
-
+})
 /* Student Section */
 router.get('/registerStudent', function(req, res, next) {
   res.render('admin');
@@ -77,9 +42,58 @@ router.get('/registerStudent', function(req, res, next) {
 router.get('/registerTeacher', function(req, res, next) {
   res.render('teacherForm');
 });
+
+// router.get('/teacher', function(req, res, next) {
+//   res.render('teacher');
+// });
 /////////////////////////////////////////////////////////////////////////////////////////
 // REST API Post works
 ////////////////////////////////////////////////////////////////////////////////////////
+//teacher login
+router.post('/teacher', function(req, res, next){
+  var email = req.body.email;
+  var  pass = req.body.password;
+  mongo.connect(url, function(err, db){
+    assert.equal(null, err);
+    db.collection('teacher').findOne({username: email, password: pass}, function(err, doc){
+    assert.equal(err, null);
+    console.log("Item Searched Inserted.");
+    db.close();
+    res.render('teacher', {items: doc});    
+  });
+});
+});
+
+//teacher show
+router.get('/teacher/:email', function(req, res, next){
+  var email = req.params.email;
+  // var  pass = req.body.password;
+  mongo.connect(url, function(err, db){
+    assert.equal(null, err);
+    db.collection('teacher').findOne({username: email}, function(err, doc){
+    assert.equal(err, null);
+    console.log("Item Searched Inserted.");
+    db.close();
+    res.render('teacher', {items: doc});    
+  });
+});
+});
+
+//student login
+router.post('/student', function(req, res, next){
+  var email = req.body.email;
+  var  pass = req.body.password;
+  mongo.connect(url, function(err, db){
+    assert.equal(null, err);
+    db.collection('student').findOne({username: email, password: pass}, function(err, doc){
+    assert.equal(err, null);
+    console.log("Item Searched Inserted.");
+    db.close();
+    res.render('student', {items: doc});    
+  });
+});
+});
+
 
 // for Teachers
 router.post('/insertTeacher', function(req, res, next){
@@ -115,8 +129,7 @@ router.post('/insertStudent', function(req, res, next){
     class : req.body.sClass,
     gender : req.body.sGender,
     location : req.body.sLocation,
-    pic: req.body.sPic,
-    username : req.body.sUsername,
+    username : req.body.sUser,
     password : req.body.sPassword,
     contact : req.body.sContact
   }; 

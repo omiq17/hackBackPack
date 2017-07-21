@@ -59,7 +59,7 @@ router.post('/teacher', function(req, res, next){
     assert.equal(err, null);
     console.log("Item Searched Inserted.");
     db.close();
-    res.render('teacher', {items: doc});    
+    res.render('teacher', {items: doc, student: "false"});    
   });
 });
 });
@@ -74,7 +74,7 @@ router.get('/teacher/:email', function(req, res, next){
     assert.equal(err, null);
     console.log("Item Searched Inserted.");
     db.close();
-    res.render('teacher', {items: doc});    
+    res.render('teacher', {items: doc, student: "true"});    
   });
 });
 });

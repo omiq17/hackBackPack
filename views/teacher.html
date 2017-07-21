@@ -1,9 +1,8 @@
 <%- include header.html -%>
 
     <section id="teacher" class="container">
-        <h1><b><%= items.name %>'s Panel</b></h1>
+        <h1><b><%= items.name %>'s Profile</b></h1>
         <div class="row">
-                <!--<div class="col-xs-12">-->
                     <img class="img img-circle" src="<%- items.pic %>" height="250px" width="250px" alt="">
                     <br>
                     <h4><%= items.university %></h4>
@@ -12,8 +11,12 @@
                     <h4>I can teach <%= items.subjects %></h4>
                     <h4><%= items.bio %></h4>
                     <h4><%= items.contact %></h4>
-                    
-                <!--</div>  -->
+                    <% if (student == "true"){ %>
+                    <a href="/teacherlist" class="btn btn-my btn-block">Give Invitation</a>
+                    <a href="/teacherlist" class="btn btn-my btn-block">Back</a>
+                    <% } else { %>
+                    <a href="/teacherlist" class="btn btn-my btn-block">See Invitations</a>
+                    <% } %>
         </div>
     </section>
 

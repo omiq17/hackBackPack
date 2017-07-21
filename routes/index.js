@@ -3,6 +3,7 @@ var router = express.Router();
 var mongo = require('mongodb').MongoClient;
 var assert = require('assert');
 var ObjectId = require('mongodb').ObjectID;
+process.env.NODE_ENV = 'production';
 
 var url = 'mongodb://localhost:27017/tuition';
 
